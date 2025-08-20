@@ -23,7 +23,9 @@ public class Chlo {
                     System.out.println((i+1) + ". " + tasks[i].toString());
                 }
                 System.out.println(line);
-            } else if (input.startsWith("todo")) {
+            } else if (input.equals("todo") || input.equals("deadline") || input.equals("event")) {
+                System.out.printf(line + "\nDescription of %s cannot be empty.\n" + line + "\n", input);
+            }else if (input.startsWith("todo")) {
                 tasks[count++] = new Todo(input.substring(5));
                 System.out.println(line + "\nGot it. I've added this task:\n" + tasks[count-1].toString() + "\nNow you have " + count + " tasks in the list.\n" + line);
             } else if (input.startsWith("deadline")) {
@@ -45,8 +47,7 @@ public class Chlo {
                 System.out.println(line + "\nOK, I've marked this task as not done yet:\n" + tasks[i-1].toString() + "\n" + line);
 
             } else {
-                tasks[count++] =  new Task(input);
-                System.out.println(line + "\nadded: " + input + "\n" + line);
+                System.out.println(line + "\nUnrecognised message\n" + line);
             }
         }
 
