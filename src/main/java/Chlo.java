@@ -1,9 +1,9 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.FileWriter;
-import java.io.FileNotFoundException;
 
 public class Chlo {
     private static final String FILE_PATH = "src/main/tasks.txt";
@@ -15,30 +15,48 @@ public class Chlo {
         try {
             Scanner scanner = new Scanner(file);
             if (!file.exists()) {
-                // Create empty file if it doesn't exist
-                file.createNewFile();
-                System.out.println("Greetings new user. I'm Chlo!");
-            } else if (!scanner.hasNextLine()) {
+                boolean created = file.createNewFile();
+                if (created) {
+                    System.out.println("Greetings new user. I'm Chlo!");
+                } else {
+                    System.out.println("Unable to create file, please check permissions.");
+                }
+            } else if(!scanner.hasNextLine()) {
                 System.out.println("Welcome back! I'm Chlo!\nYou are up to date with your tasks.");
             } else {
                 System.out.println("Welcome back! I'm Chlo!\nYour current tasks:");
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
-                    System.out.println(line);
-                    tasks.add(Task.parseTask(line));  // Parse string to Task object
+                    if (line.startsWith("todo")) {
+                        Task task = new Todo(line);
+                        tasks.add(task);
+                        System.out.println(task.toString());
+                    } else if (line.startsWith("deadline")) {
+                        int by = line.indexOf("/by");
+                        Task task = new Deadline(line.substring(9, by-1), line.substring(by+4));
+                        tasks.add(task);
+                        System.out.println(task.toString());
+                    } else {
+                        int from = line.indexOf("/from");
+                        int to = line.indexOf("/to");
+                        Task task = new Event(line.substring(6, from-1), line.substring(from+6, to-1), line.substring(to+4));
+                        System.out.println(task.toString());
+                    }
                 }
                 scanner.close();
             }
         } catch (IOException e) {
-            System.out.println("Error accessing the task file: " + e.getMessage());
+            System.out.println("Error accessing tasks file: " + e.getMessage());
         }
         return tasks;
     }
+
+
     // Save all tasks to file
     private static void saveTasksToFile(ArrayList<Task> tasks) {
         try (FileWriter fw = new FileWriter(FILE_PATH)) {
             for (Task task : tasks) {
-                fw.write(task.toString() + System.lineSeparator());
+                fw.write(task.toRaw() + System.lineSeparator());
             }
         } catch (IOException e) {
             System.out.println("Error saving tasks: " + e.getMessage());
