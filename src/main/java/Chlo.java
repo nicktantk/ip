@@ -9,18 +9,22 @@ public class Chlo {
     private static final String FILE_PATH = "src/main/tasks.txt";
 
     // Load tasks from file into ArrayList
-    private static ArrayList<Task> loadTasksFromFile() {
+    private static ArrayList<Task> displayTasksFromFile() {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(FILE_PATH);
         try {
+            Scanner scanner = new Scanner(file);
             if (!file.exists()) {
                 // Create empty file if it doesn't exist
                 file.createNewFile();
-                System.out.println("No saved tasks found. Starting fresh.");
+                System.out.println("Greetings new user. I'm Chlo!");
+            } else if (!scanner.hasNextLine()) {
+                System.out.println("Welcome back! I'm Chlo!\nYou are up to date with your tasks.");
             } else {
-                Scanner scanner = new Scanner(file);
+                System.out.println("Welcome back! I'm Chlo!\nYour current tasks:");
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
+                    System.out.println(line);
                     tasks.add(Task.parseTask(line));  // Parse string to Task object
                 }
                 scanner.close();
@@ -43,9 +47,8 @@ public class Chlo {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<Task> tasks = loadTasksFromFile();
+        ArrayList<Task> tasks = displayTasksFromFile();
         String line = "-".repeat(50);
-        System.out.println(line + "\nHello! I'm Chlo");
         System.out.println("What else can I do for you today?\n" + line);
 
         while (true) {
