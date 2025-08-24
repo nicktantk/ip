@@ -1,0 +1,11 @@
+import java.io.IOException;
+
+public abstract class Command {
+    public abstract void execute(TaskList tasks, Ui ui, Storage storage) throws ChloException;
+
+    public boolean isExit() { return false; }
+}
+
+
+
+// Implement AddCommand, DeleteCommand, ListCommand etc. similarly

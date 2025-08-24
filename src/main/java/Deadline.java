@@ -4,14 +4,14 @@ public class Deadline extends Task {
 
     protected LocalDateTime by;
 
-    public Deadline(String description, String by) {
+    public Deadline(String description, String by) throws ChloException {
         super(description);
-        this.by = DateParser.parseDeadline(by);
+        this.by = Parser.parseDate(by);
         this.raw = String.format("deadline %s /by %s", description, by);
     }
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + DateParser.getFormattedDeadline(this.by) + ")";
+        return "[D]" + super.toString() + " (by: " + Parser.getFormattedDate(this.by) + ")";
     }
 }

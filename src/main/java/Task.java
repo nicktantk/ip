@@ -25,7 +25,7 @@ public class Task {
         return "[" + getStatusIcon() + "] " + description;
     }
 
-    public String toRaw() {
+    public String getRaw() {
         return raw;
     }
 }
