@@ -1,3 +1,9 @@
+package chlo.command;
+
+import chlo.ui.*;
+import chlo.storage.*;
+import chlo.task.*;
+
 public class ExitCommand extends Command {
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
