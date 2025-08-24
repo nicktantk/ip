@@ -10,7 +10,7 @@ public class Chlo {
         this.storage = new Storage(filePath);
         try {
             tasks = new TaskList(storage.load());
-        } catch (IOException e) {
+        } catch (ChloException e) {
             ui.showLoadingError();
             tasks = new TaskList();
         }

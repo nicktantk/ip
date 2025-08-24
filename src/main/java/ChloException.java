@@ -1,4 +1,6 @@
-public class ChloException extends Exception {
+import java.io.IOException;
+
+public class ChloException extends IOException {
     public ChloException(String message){
         super(message);
     }

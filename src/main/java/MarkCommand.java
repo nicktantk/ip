@@ -1,12 +1,17 @@
 public class MarkCommand extends Command {
-    private int index;
+    private String index;
     public MarkCommand(String index) {
-        this.index = Integer.parseInt(index) - 1;
+        this.index = index;
     }
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
-        Task task = tasks.get(index);
-        task.markDone();
-        ui.showMarkTask(task);
+        try {
+            int i =  Integer.parseInt(index) - 1;
+            Task task = tasks.get(i);
+            task.markDone();
+            ui.showMarkTask(task);
+        } catch (ChloException e) {
+            ui.showError(e.getMessage());
+        }
     }
 }

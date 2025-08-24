@@ -15,7 +15,13 @@ public class TaskList {
 
     public Task remove(int index) { return tasks.remove(index); }
 
-    public Task get(int index) { return tasks.get(index); }
+    public Task get(int index) throws ChloException{
+        try {
+            return tasks.get(index);
+        } catch (Exception e) {
+            throw new ChloException("Index not valid.");
+        }
+    }
 
     public int size() { return tasks.size(); }
 
@@ -25,5 +31,11 @@ public class TaskList {
         }
     }
 
-    // ... Mark, unmark, etc.
+    public void markTask(Task t) {
+        t.markDone();
+    }
+
+    public void unmarkTask(Task t) {
+        t.markUndone();
+    }
 }

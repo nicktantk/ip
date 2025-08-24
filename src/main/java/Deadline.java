@@ -1,4 +1,6 @@
+import java.text.ParseException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
 
 public class Deadline extends Task {
 
@@ -6,8 +8,10 @@ public class Deadline extends Task {
 
     public Deadline(String description, String by) throws ChloException {
         super(description);
+
         this.by = Parser.parseDate(by);
         this.raw = String.format("deadline %s /by %s", description, by);
+
     }
 
     @Override
