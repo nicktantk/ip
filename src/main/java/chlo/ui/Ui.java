@@ -39,6 +39,16 @@ public class Ui {
         showLine();
     }
 
+    public void showFilteredList(TaskList tasks, String s) {
+        showLine();
+        if (tasks.size() == 0) {
+            System.out.println("No current tasks.");
+        } else {
+            tasks.printFilteredTasks(s);
+        }
+        showLine();
+    }
+
     public void showLoadingError() {
         showError("Error loading tasks!");
     }
