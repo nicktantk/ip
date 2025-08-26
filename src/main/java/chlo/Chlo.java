@@ -1,10 +1,10 @@
 package chlo;
 
 import chlo.command.*;
-import chlo.task.*;
-import chlo.exception.*;
-import chlo.ui.*;
 import chlo.storage.*;
+import chlo.task.*;
+import chlo.ui.*;
+import chlo.exception.*;
 
 public class Chlo {
     private Storage storage;
