@@ -15,22 +15,26 @@ import java.time.format.DateTimeParseException;
 public class Parser {
     public static Command parseInput(String input) throws ChloException {
         // Split and identify command
-        if (input.equals("bye")) {
-            return new ExitCommand();
-        } else if (input.equals("list")) {
-            return new ListCommand();
-        } else if (input.startsWith("todo") || input.startsWith("deadline") || input.startsWith("event")) {
-            return new AddCommand(input);
-        } else if (input.startsWith("delete")) {
-            return new DeleteCommand(input.substring(7).trim());
-        } else if (input.startsWith("mark")) {
-            return new MarkCommand(input.substring(5).trim());
-        } else if (input.startsWith("unmark")) {
-            return new UnmarkCommand(input.substring(7).trim());
-        } else if (input.startsWith("find")) {
-            return new FindCommand(input.substring(5).trim());
-        } else {
-            throw new ChloException("Unrecognised message");
+        try {
+            if (input.equals("bye")) {
+                return new ExitCommand();
+            } else if (input.equals("list")) {
+                return new ListCommand();
+            } else if (input.startsWith("todo") || input.startsWith("deadline") || input.startsWith("event")) {
+                return new AddCommand(input);
+            } else if (input.startsWith("delete")) {
+                return new DeleteCommand(input.substring(7).trim());
+            } else if (input.startsWith("mark")) {
+                return new MarkCommand(input.substring(5).trim());
+            } else if (input.startsWith("unmark")) {
+                return new UnmarkCommand(input.substring(7).trim());
+            } else if (input.startsWith("find")) {
+                return new FindCommand(input.substring(5).trim());
+            } else {
+                throw new ChloException("Unrecognised message");
+            }
+        } catch (StringIndexOutOfBoundsException e) {
+            throw new ChloException("Invalid format for command.");
         }
     }
 
