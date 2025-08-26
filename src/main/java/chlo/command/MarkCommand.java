@@ -5,6 +5,10 @@ import chlo.storage.*;
 import chlo.task.*;
 import chlo.ui.*;
 
+/**
+ * Represents a mark command that marks a task as done.
+ * Marks by index.
+ */
 public class MarkCommand extends Command {
     private String index;
     public MarkCommand(String index) {

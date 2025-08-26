@@ -7,6 +7,11 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * The Parser class is responsible for converting raw user input strings into
+ * corresponding command instances and for parsing date-time strings into LocalDateTime objects.
+ * It also provides utility methods for formatting LocalDateTime instances into user-friendly strings.
+ */
 public class Parser {
     public static Command parseInput(String input) throws ChloException {
         // Split and identify command

@@ -5,6 +5,10 @@ import chlo.storage.*;
 import chlo.task.*;
 import chlo.ui.*;
 
+/**
+ * Represents a delete command that deletes a task from the task list.
+ * Remove by index.
+ */
 public class DeleteCommand extends Command {
     private int index;
     public DeleteCommand(String index){
