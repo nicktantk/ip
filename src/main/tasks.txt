@@ -1,4 +1,4 @@
 todo todo
 todo todo
 todo 
-deadline deadline /by 11/11/2002 1920
+event new event /from 24/01/2024 0100 /to 25/01/2025 0100
