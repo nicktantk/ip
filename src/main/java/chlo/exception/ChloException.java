@@ -1,3 +1,5 @@
+package chlo.exception;
+
 import java.io.IOException;
 
 public class ChloException extends IOException {

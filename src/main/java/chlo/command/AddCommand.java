@@ -1,3 +1,10 @@
+package chlo.command;
+
+import chlo.storage.*;
+import chlo.task.*;
+import chlo.ui.*;
+import chlo.exception.*;
+
 public class AddCommand extends Command {
     private String input;
     public AddCommand(String input) {

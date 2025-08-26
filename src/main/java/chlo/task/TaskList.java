@@ -1,3 +1,7 @@
+package chlo.task;
+
+import chlo.exception.ChloException;
+
 import java.util.ArrayList;
 
 public class TaskList {
@@ -15,7 +19,7 @@ public class TaskList {
 
     public Task remove(int index) { return tasks.remove(index); }
 
-    public Task get(int index) throws ChloException{
+    public Task get(int index) throws ChloException {
         try {
             return tasks.get(index);
         } catch (Exception e) {

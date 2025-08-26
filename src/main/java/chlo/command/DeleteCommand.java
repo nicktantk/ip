@@ -1,3 +1,10 @@
+package chlo.command;
+
+import chlo.storage.*;
+import chlo.task.*;
+import chlo.ui.*;
+import chlo.exception.*;
+
 public class DeleteCommand extends Command {
     private int index;
     public DeleteCommand(String index){

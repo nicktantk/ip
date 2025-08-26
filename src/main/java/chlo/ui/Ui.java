@@ -1,10 +1,16 @@
+package chlo.ui;
+
 import java.util.Scanner;
+import chlo.command.*;
+import chlo.storage.*;
+import chlo.task.*;
+import chlo.exception.*;
 
 public class Ui {
     private final Scanner scanner = new Scanner(System.in);
 
     public void showWelcome() {
-        System.out.println("Welcome back! I'm Chlo!");
+        System.out.println("Welcome back! I'm chlo.Chlo!");
         System.out.println("What else can I do?");
     }
 

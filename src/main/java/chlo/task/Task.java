@@ -1,3 +1,5 @@
+package chlo.task;
+
 public class Task {
     protected String raw;
     protected String description;
