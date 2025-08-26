@@ -1,9 +1,8 @@
 package chlo.task;
 
+import java.time.LocalDateTime;
 import chlo.exception.ChloException;
 import chlo.ui.Parser;
-
-import java.time.LocalDateTime;
 
 public class Deadline extends Task {
 

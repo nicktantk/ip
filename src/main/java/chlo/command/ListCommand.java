@@ -1,9 +1,9 @@
 package chlo.command;
 
+import chlo.exception.*;
 import chlo.storage.*;
 import chlo.task.*;
 import chlo.ui.*;
-import chlo.exception.*;
 
 public class ListCommand extends Command{
     @Override

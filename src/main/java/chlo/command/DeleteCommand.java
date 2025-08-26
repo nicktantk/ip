@@ -1,9 +1,9 @@
 package chlo.command;
 
+import chlo.exception.*;
 import chlo.storage.*;
 import chlo.task.*;
 import chlo.ui.*;
-import chlo.exception.*;
 
 public class DeleteCommand extends Command {
     private int index;
@@ -23,4 +23,3 @@ public class DeleteCommand extends Command {
         }
     }
 }
-
