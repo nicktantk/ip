@@ -36,10 +36,15 @@ public class TaskList {
     }
 
     public void printFilteredTasks(String s) {
+        int count = 0;
         for (int i = 0; i < tasks.size(); i++) {
             if (tasks.get(i).getDescription().contains(s)) {
+                count++;
                 System.out.println((i + 1) + ". " + tasks.get(i));
             }
+        }
+        if (count == 0) {
+            System.out.println("No such task found.");
         }
     }
 
