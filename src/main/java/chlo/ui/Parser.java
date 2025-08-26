@@ -27,6 +27,8 @@ public class Parser {
             return new MarkCommand(input.substring(5).trim());
         } else if (input.startsWith("unmark")) {
             return new UnmarkCommand(input.substring(7).trim());
+        } else if (input.startsWith("find")) {
+            return new FindCommand(input.substring(5).trim());
         } else {
             throw new ChloException("Unrecognised message");
         }

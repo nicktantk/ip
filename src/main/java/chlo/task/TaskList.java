@@ -35,6 +35,14 @@ public class TaskList {
         }
     }
 
+    public void printFilteredTasks(String s) {
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).getDescription().contains(s)) {
+                System.out.println((i + 1) + ". " + tasks.get(i));
+            }
+        }
+    }
+
     public void markTask(Task t) {
         t.markDone();
     }

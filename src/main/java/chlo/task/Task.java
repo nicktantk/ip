@@ -30,4 +30,8 @@ public class Task {
     public String getRaw() {
         return raw;
     }
+
+    public String getDescription() {
+        return description;
+    }
 }
