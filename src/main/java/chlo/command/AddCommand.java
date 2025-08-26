@@ -5,6 +5,10 @@ import chlo.storage.*;
 import chlo.task.*;
 import chlo.ui.*;
 
+/**
+ * Represents an add command that adds a new task to the task list.
+ * Supports adding Todo, Deadline, and Event tasks by parsing user input.
+ */
 public class AddCommand extends Command {
     private String input;
     public AddCommand(String input) {

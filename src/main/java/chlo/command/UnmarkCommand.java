@@ -5,6 +5,10 @@ import chlo.storage.*;
 import chlo.task.*;
 import chlo.ui.*;
 
+/**
+ * Represents an unmark command that unmarks a task in the task list.
+ * Unmarks by index.
+ */
 public class UnmarkCommand extends Command {
     private final String index;
 
