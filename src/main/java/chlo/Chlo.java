@@ -39,6 +39,6 @@ public class Chlo {
     }
 
     public static void main(String[] args) {
-        new Chlo("src/main/tasks.txt").run();
+        new Chlo("tasks.txt").run();
     }
 }
