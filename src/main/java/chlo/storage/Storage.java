@@ -13,16 +13,21 @@ import chlo.task.Todo;
 import chlo.task.TaskList;
 
 public class Storage {
-    private final String filePath;
+    private final String FILE_PATH;
 
     public Storage(String filePath) {
-        this.filePath = filePath;
+        this.FILE_PATH = filePath;
     }
 
+    /**
+     * loads list from hard disk
+     * @return
+     * @throws ChloException
+     */
     public ArrayList<Task> load() throws ChloException {
         try {
             ArrayList<Task> tasks = new ArrayList<>();
-            File file = new File(filePath);
+            File file = new File(FILE_PATH);
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -47,9 +52,13 @@ public class Storage {
         }
     }
 
+    /**
+     * saves list to hard disk
+     * @param tasks
+     */
     public void save(TaskList tasks) {
         try {
-            FileWriter fw = new FileWriter(filePath);
+            FileWriter fw = new FileWriter(FILE_PATH);
             for (int i = 0; i < tasks.size(); i++) {
                 fw.write(tasks.get(i).getRaw() + System.lineSeparator());
             }
