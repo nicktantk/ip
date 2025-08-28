@@ -1,11 +1,16 @@
 package chlo.storage;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import chlo.exception.*;
-import chlo.task.*;
-import chlo.ui.*;
+import chlo.exception.ChloException;
+import chlo.task.Deadline;
+import chlo.task.Event;
+import chlo.task.Task;
+import chlo.task.Todo;
+import chlo.task.TaskList;
 
 public class Storage {
     private final String filePath;
