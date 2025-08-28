@@ -20,9 +20,9 @@ public class MarkCommand extends Command {
             int i =  Integer.parseInt(index) - 1;
             Task task = tasks.get(i);
             task.markDone();
-            ui.showMarkTask(task);
+            setString(ui.getMarkTask(task));
         } catch (ChloException e) {
-            ui.showError(e.getMessage());
+            setString(ui.getError(e.getMessage()));
         }
     }
 }

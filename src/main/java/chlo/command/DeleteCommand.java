@@ -13,7 +13,7 @@ import chlo.ui.Ui;
 public class DeleteCommand extends Command {
     private int index;
     public DeleteCommand(String index){
-        this.index = Integer.parseInt(index);
+        this.index = Integer.parseInt(index) - 1;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class DeleteCommand extends Command {
         try {
             Task task = tasks.get(index);
             tasks.remove(index);
-            ui.showMarkTask(task);
+            setString(ui.getMarkTask(task));
             storage.save(tasks);
         } catch (ChloException e) {
             System.out.println(e.getMessage());

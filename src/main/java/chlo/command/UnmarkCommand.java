@@ -22,9 +22,9 @@ public class UnmarkCommand extends Command {
             int i = Integer.parseInt(index) - 1;
             Task task = tasks.get(i);
             task.markUndone();
-            ui.showUnmarkTask(task);
+            setString(ui.getUnmarkTask(task));
         } catch (ChloException e) {
-            ui.showError(e.getMessage());
+            setString(ui.getError(e.getMessage()));
         }
     }
 
