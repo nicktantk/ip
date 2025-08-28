@@ -1,9 +1,9 @@
 package chlo.command;
 
-import chlo.exception.*;
-import chlo.storage.*;
+import chlo.exception.ChloException;
+import chlo.storage.Storage;
 import chlo.task.*;
-import chlo.ui.*;
+import chlo.ui.Ui;
 
 /**
  * Represents an add command that adds a new task to the task list.
