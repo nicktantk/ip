@@ -29,23 +29,27 @@ public class TaskList {
 
     public int size() { return tasks.size(); }
 
-    public void printTasks() {
+    public String getTasks() {
+        StringBuilder s =  new StringBuilder();
         for (int i = 0; i < tasks.size(); i++) {
-            System.out.println((i + 1) + ". " + tasks.get(i));
+            s.append((i + 1)).append(". ").append(tasks.get(i)).append("\n");
         }
+        return s.toString();
     }
 
-    public void printFilteredTasks(String s) {
+    public String getFilteredTasks(String s) {
         int count = 0;
+        StringBuilder t = new StringBuilder();
         for (int i = 0; i < tasks.size(); i++) {
             if (tasks.get(i).getDescription().contains(s)) {
                 count++;
-                System.out.println((i + 1) + ". " + tasks.get(i));
+                t.append((i + 1)).append(". ").append(tasks.get(i)).append("\n");
             }
         }
         if (count == 0) {
-            System.out.println("No such task found.");
+            return "No such task found.";
         }
+        return t.toString();
     }
 
     public void markTask(Task t) {

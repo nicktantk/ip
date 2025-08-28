@@ -10,6 +10,7 @@ public class Chlo {
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
+    private String commandType;
 
     public Chlo(String filePath) {
         this.ui = new Ui();
@@ -17,28 +18,26 @@ public class Chlo {
         try {
             tasks = new TaskList(storage.load());
         } catch (ChloException e) {
-            ui.showLoadingError();
+            // ui.LoadingError();
             tasks = new TaskList();
         }
     }
 
-    public void run() {
-        ui.showWelcome();
-        ui.showTaskList(tasks);
-        boolean isExit = false;
-        while (!isExit) {
-            try {
-                String fullCommand = ui.readCommand();
-                Command c = Parser.parseInput(fullCommand);
-                c.execute(tasks, ui, storage);
-                isExit = c.isExit();
-            } catch (ChloException e) {
-                ui.showError(e.getMessage());
-            }
+    public String getResponse(String input) {
+        try {
+            Command c = Parser.parseInput(input);
+            c.execute(tasks, ui, storage);
+            this.commandType = c.getClass().getSimpleName();
+            return c.getString();
+        } catch (ChloException e) {
+            return "Error: " + e.getMessage();
         }
     }
 
-    public static void main(String[] args) {
-        new Chlo("tasks.txt").run();
+    public String getCommandType() {
+        return this.commandType;
     }
 }
+
+
+

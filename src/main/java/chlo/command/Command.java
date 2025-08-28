@@ -15,8 +15,16 @@ public abstract class Command {
      * @param ui
      * @param storage
      */
+    private String string;
     public abstract void execute(TaskList tasks, Ui ui, Storage storage);
 
+    public void setString(String s) {
+        this.string = s;
+    }
+
+    public String getString() {
+        return string;
+    }
     public boolean isExit() { return false; }
 }
 
