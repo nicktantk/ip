@@ -18,7 +18,7 @@ public class MarkCommand extends Command {
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         try {
             int i = Integer.parseInt(index) - 1;
-            assert i < tasks.size() : "Index should not exceed size of task list";
+            assert i < tasks.size() : "Index must be less than tasks length";
             Task task = tasks.get(i);
             task.markDone();
             setString(ui.getMarkTask(task));
