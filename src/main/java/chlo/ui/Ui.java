@@ -35,9 +35,7 @@ public class Ui {
     }
 
     public String getFilteredList(TaskList tasks, String s) {
-        return getLine() + "\n" +
-                (tasks.size() == 0 ? "No current tasks." : tasks.getFilteredTasks(s)) + "\n" +
-                getLine();
+        return getLine() + "\n" + (tasks.size() == 0 ? "No current tasks." : tasks.getFilteredTasks(s)) + "\n" + getLine();
     }
 
     public String getLoadingError() {
