@@ -1,13 +1,23 @@
 package chlo.task;
 
 import java.time.LocalDateTime;
+
 import chlo.exception.ChloException;
 import chlo.ui.Parser;
 
+/**
+ * Creates a deadline task
+ */
 public class Deadline extends Task {
 
     protected LocalDateTime by;
 
+    /**
+     * Constructor for a deadline task
+     * @param description
+     * @param by
+     * @throws ChloException
+     */
     public Deadline(String description, String by) throws ChloException {
         super(description);
 

@@ -1,15 +1,25 @@
 package chlo.task;
 
+import java.time.LocalDateTime;
+
 import chlo.exception.ChloException;
 import chlo.ui.Parser;
 
-import java.time.LocalDateTime;
-
+/**
+ * Creates an event task
+ */
 public class Event extends Task {
 
     protected LocalDateTime from;
     protected LocalDateTime to;
 
+    /**
+     * Event constructor
+     * @param description
+     * @param from
+     * @param to
+     * @throws ChloException
+     */
     public Event(String description, String from, String to) throws ChloException {
         super(description);
         this.from = Parser.parseDate(from);

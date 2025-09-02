@@ -1,24 +1,32 @@
 package chlo;
 
-import chlo.command.*;
-import chlo.storage.*;
-import chlo.task.*;
-import chlo.ui.*;
-import chlo.exception.*;
+import chlo.command.Command;
+import chlo.exception.ChloException;
+import chlo.storage.Storage;
+import chlo.task.TaskList;
+import chlo.ui.Parser;
+import chlo.ui.Ui;
 
+
+/**
+ * Chlo class that calls command executions
+ */
 public class Chlo {
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
     private String commandType;
 
+    /**
+     * Chlo constructor
+     * @param filePath
+     */
     public Chlo(String filePath) {
         this.ui = new Ui();
         this.storage = new Storage(filePath);
         try {
             tasks = new TaskList(storage.load());
         } catch (ChloException e) {
-            // ui.LoadingError();
             tasks = new TaskList();
         }
     }

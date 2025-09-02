@@ -1,5 +1,8 @@
 package chlo.task;
 
+/**
+ * Parent task class
+ */
 public class Task {
     protected String raw;
     protected String description;
