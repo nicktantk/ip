@@ -17,7 +17,7 @@ public class MarkCommand extends Command {
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         try {
-            int i =  Integer.parseInt(index) - 1;
+            int i = Integer.parseInt(index) - 1;
             Task task = tasks.get(i);
             task.markDone();
             setString(ui.getMarkTask(task));

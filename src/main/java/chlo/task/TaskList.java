@@ -1,9 +1,13 @@
 package chlo.task;
 
-import chlo.exception.ChloException;
-
 import java.util.ArrayList;
 
+import chlo.exception.ChloException;
+
+/**
+ * TaskList class that contains a task arraylist
+ * This acts like an arraylist with more robust list display features
+ */
 public class TaskList {
     private ArrayList<Task> tasks;
 
@@ -30,7 +34,7 @@ public class TaskList {
     public int size() { return tasks.size(); }
 
     public String getTasks() {
-        StringBuilder s =  new StringBuilder();
+        StringBuilder s = new StringBuilder();
         for (int i = 0; i < tasks.size(); i++) {
             s.append((i + 1)).append(". ").append(tasks.get(i)).append("\n");
         }
@@ -50,13 +54,5 @@ public class TaskList {
             return "No such task found.";
         }
         return t.toString();
-    }
-
-    public void markTask(Task t) {
-        t.markDone();
-    }
-
-    public void unmarkTask(Task t) {
-        t.markUndone();
     }
 }
