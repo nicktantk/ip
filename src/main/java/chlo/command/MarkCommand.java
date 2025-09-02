@@ -1,9 +1,10 @@
 package chlo.command;
 
-import chlo.exception.*;
-import chlo.storage.*;
-import chlo.task.*;
-import chlo.ui.*;
+import chlo.exception.ChloException;
+import chlo.storage.Storage;
+import chlo.task.Task;
+import chlo.task.TaskList;
+import chlo.ui.Ui;
 
 /**
  * Represents a mark command that marks a task as done.
