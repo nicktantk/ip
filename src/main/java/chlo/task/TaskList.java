@@ -1,6 +1,8 @@
 package chlo.task;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import chlo.exception.ChloException;
 
@@ -34,25 +36,18 @@ public class TaskList {
     public int size() { return tasks.size(); }
 
     public String getTasks() {
-        StringBuilder s = new StringBuilder();
-        for (int i = 0; i < tasks.size(); i++) {
-            s.append((i + 1)).append(". ").append(tasks.get(i)).append("\n");
-        }
-        return s.toString();
+        return IntStream.range(0, tasks.size())
+                .mapToObj(i -> (i + 1) + ". " + tasks.get(i))
+                .collect(Collectors.joining("\n"));
     }
 
     public String getFilteredTasks(String s) {
-        int count = 0;
-        StringBuilder t = new StringBuilder();
-        for (int i = 0; i < tasks.size(); i++) {
-            if (tasks.get(i).getDescription().contains(s)) {
-                count++;
-                t.append((i + 1)).append(". ").append(tasks.get(i)).append("\n");
-            }
-        }
-        if (count == 0) {
-            return "No such task found.";
-        }
-        return t.toString();
+        String result = IntStream.range(0, tasks.size())
+                .filter(i -> tasks.get(i).getDescription().contains(s))
+                .mapToObj(i -> (i + 1) + ". " + tasks.get(i))
+                .collect(Collectors.joining("\n"));
+
+        return result.isEmpty() ? "No such task found." : result;
     }
+
 }

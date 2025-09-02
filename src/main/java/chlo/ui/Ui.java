@@ -1,11 +1,11 @@
 package chlo.ui;
 
+import chlo.task.Task;
+import chlo.task.TaskList;
+
 import java.util.Scanner;
 
-import chlo.command.*;
-import chlo.storage.*;
-import chlo.task.*;
-import chlo.exception.*;
+
 
 public class Ui {
     private final Scanner scanner = new Scanner(System.in);
@@ -27,11 +27,7 @@ public class Ui {
     }
 
     public String getTaskList(TaskList tasks) {
-        return getLine() + "\n" +
-                (tasks.size() == 0 ? "No current tasks" : "Here are the tasks in your list:\n" +
-                        tasks.getTasks()) + "\n" +
-                getLine();
-
+        return getLine() + "\n" + (tasks.size() == 0 ? "No current tasks" : "Here are the tasks in your list:\n" + tasks.getTasks()) + "\n" + getLine();
     }
 
     public String getFilteredList(TaskList tasks, String s) {
@@ -43,21 +39,14 @@ public class Ui {
     }
 
     public String getAddTask(Task task, int numTasks) {
-        return getLine() + "\n" +
-                String.format("Got it. I've added this task:\n" + task) + "\n" +
-                String.format("Now you have %d tasks in the list.", numTasks) + "\n" +
-                getLine();
+        return getLine() + "\n" + String.format("Got it. I've added this task:\n" + task) + "\n" + String.format("Now you have %d tasks in the list.", numTasks) + "\n" + getLine();
     }
 
     public String getMarkTask(Task task) {
-        return getLine() + "\n" +
-                "Got it. I've marked this task:\n" + task + "\n" +
-                getLine();
+        return getLine() + "\n" + "Got it. I've marked this task:\n" + task + "\n" + getLine();
     }
 
     public String getUnmarkTask(Task task) {
-        return getLine() +  "\n" +
-                "Got it. I've unmarked this task:" + task + "\n" +
-                getLine();
+        return getLine() + "\nGot it. I've unmarked this task:" + task + "\n" + getLine();
     }
 }
