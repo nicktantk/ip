@@ -1,9 +1,10 @@
 package chlo.command;
 
-import chlo.exception.*;
-import chlo.storage.*;
-import chlo.task.*;
-import chlo.ui.*;
+import chlo.exception.ChloException;
+import chlo.storage.Storage;
+import chlo.task.Task;
+import chlo.task.TaskList;
+import chlo.ui.Ui;
 
 /**
  * Represents an unmark command that unmarks a task in the task list.
@@ -27,5 +28,4 @@ public class UnmarkCommand extends Command {
             setString(ui.getError(e.getMessage()));
         }
     }
-
 }

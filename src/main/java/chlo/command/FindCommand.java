@@ -1,13 +1,15 @@
 package chlo.command;
 
-import chlo.exception.*;
-import chlo.storage.*;
-import chlo.task.*;
-import chlo.ui.*;
+import chlo.storage.Storage;
+import chlo.task.TaskList;
+import chlo.ui.Ui;
 
+/**
+ * Find command that handles find command
+ */
 public class FindCommand extends Command {
     protected String s;
-    public FindCommand(String s){
+    public FindCommand(String s) {
         this.s = s;
     }
     @Override
