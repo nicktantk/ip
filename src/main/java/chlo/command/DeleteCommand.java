@@ -12,7 +12,7 @@ import chlo.ui.Ui;
  */
 public class DeleteCommand extends Command {
     private int index;
-    public DeleteCommand(String index){
+    public DeleteCommand(String index) {
         this.index = Integer.parseInt(index) - 1;
     }
 
