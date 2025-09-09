@@ -30,6 +30,8 @@ public class Parser {
                 return new UnmarkCommand(input.substring(7).trim());
             } else if (input.startsWith("find")) {
                 return new FindCommand(input.substring(5).trim());
+            } else if (input.equals("sort")) {
+                return new SortCommand();
             } else {
                 throw new ChloException("Unrecognised message");
             }
@@ -38,7 +40,7 @@ public class Parser {
         }
     }
 
-    public static LocalDateTime parseDate(String input) throws ChloException{
+    public static LocalDateTime parseDate(String input) throws ChloException {
         try {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
             return LocalDateTime.parse(input, formatter);
@@ -46,6 +48,7 @@ public class Parser {
             throw new ChloException("Invalid date format.\nDates in DD/MM/YYYY HHmm");
         }
     }
+
     public static String getFormattedDate(LocalDateTime by) {
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("d'suffix' 'of' MMMM yyyy, h:mma");
         return by.format(outputFormatter).replace("suffix", getDaySuffix(by.getDayOfMonth()));

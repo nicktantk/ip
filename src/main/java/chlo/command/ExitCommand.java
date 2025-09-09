@@ -12,11 +12,9 @@ import chlo.ui.*;
 public class ExitCommand extends Command {
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
-        setString(ui.getLine() + "%n" +
-                "Bye. Hope to see you again soon!" + "%n" +
-                ui.getLine());
+        setString(
+                "Bye. Hope to see you again soon!");
     }
-
     @Override
     public boolean isExit() {
         return true;

@@ -30,4 +30,12 @@ public class Deadline extends Task {
     public String toString() {
         return "[D]" + super.toString() + " (by: " + Parser.getFormattedDate(this.by) + ")";
     }
+
+    /**
+     * Get by time for sort command to handle
+     * @return
+     */
+    public LocalDateTime getBy() {
+        return by;
+    }
 }

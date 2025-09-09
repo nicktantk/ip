@@ -32,4 +32,12 @@ public class Event extends Task {
     public String toString() {
         return "[E]" + super.toString() + " (from: " + Parser.getFormattedDate(this.from) + " to: " + Parser.getFormattedDate(this.to) + ")";
     }
+
+    /**
+     * To get from time for sort command to handle
+     * @return
+     */
+    public LocalDateTime getFrom() {
+        return from;
+    }
 }
