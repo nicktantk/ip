@@ -25,6 +25,7 @@ public class UnmarkCommand extends Command {
             Task task = tasks.get(i);
             task.markUndone();
             setString(ui.getUnmarkTask(task));
+            storage.save(tasks);
         } catch (ChloException e) {
             setString(ui.getError(e.getMessage()));
         }

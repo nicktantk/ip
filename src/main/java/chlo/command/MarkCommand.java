@@ -23,6 +23,7 @@ public class MarkCommand extends Command {
             Task task = tasks.get(i);
             task.markDone();
             setString(ui.getMarkTask(task));
+            storage.save(tasks);
         } catch (ChloException e) {
             setString(ui.getError(e.getMessage()));
         }

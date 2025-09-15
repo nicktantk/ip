@@ -17,12 +17,24 @@ public class Task {
         return (isDone ? "X" : " "); // mark done task with X
     }
 
+    /**
+     * Mark task as done. Append / marking to the raw string
+     */
     public void markDone() {
         isDone = true;
+        if (raw.charAt(raw.length() - 1) != '/') {
+            raw = raw + '/';
+        }
     }
 
+    /**
+     * Mark task as undone. Remove / marking at the end of the raw string
+     */
     public void markUndone() {
         isDone = false;
+        if (raw.charAt(raw.length() - 1) == '/') {
+            raw = raw.substring(0, raw.length() - 1);
+        }
     }
 
     @Override
