@@ -25,7 +25,7 @@ public class AddCommand extends Command {
                 storage.save(tasks);
             } else if (input.startsWith("deadline")) {
                 int by = input.indexOf("/by");
-                Task task = new Deadline(input.substring(9, by).trim(), input.substring(by+4).trim());
+                Task task = new Deadline(input.substring(9, by).trim(), input.substring(by + 4).trim());
                 tasks.add(task);
                 setString(ui.getAddTask(task, tasks.size()));
                 storage.save(tasks);

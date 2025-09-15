@@ -35,6 +35,6 @@ public class Ui {
     }
 
     public String getUnmarkTask(Task task) {
-        return "\nGot it. I've unmarked this task:" + task;
+        return "Got it. I've unmarked this task:\n" + task;
     }
 }

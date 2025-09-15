@@ -35,10 +35,23 @@ public class Storage {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 if (line.startsWith("todo")) {
-                    tasks.add(new Todo(line.substring(5).trim()));
+                    if (line.charAt(line.length() - 1) == '/') {
+                        Task task = new Todo(line.substring(5, line.length() - 1).trim());
+                        task.markDone();
+                        tasks.add(task);
+                        System.out.println("hit");
+                    } else {
+                        tasks.add(new Todo(line.substring(5).trim()));
+                    }
                 } else if (line.startsWith("deadline")) {
                     int i = line.indexOf("/by");
-                    tasks.add(new Deadline(line.substring(9, i).trim(), line.substring(i+4).trim()));
+                    if (line.charAt(line.length() - 1) == '/') {
+                        Task task = new Deadline(line.substring(9, i).trim(), line.substring(i + 4, line.length() - 1).trim());
+                        task.markDone();
+                        tasks.add(task);
+                    } else {
+                        tasks.add(new Deadline(line.substring(9, i).trim(), line.substring(i + 4).trim()));
+                    }
                 } else {
                     int i = line.indexOf("/from");
                     int j = line.indexOf("/to");
