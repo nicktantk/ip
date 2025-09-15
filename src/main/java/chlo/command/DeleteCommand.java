@@ -21,7 +21,7 @@ public class DeleteCommand extends Command {
         try {
             Task task = tasks.get(index);
             tasks.remove(index);
-            setString(ui.getMarkTask(task));
+            setString(ui.getDeleteTask(task));
             storage.save(tasks);
         } catch (ChloException e) {
             setString(ui.getError(e.getMessage()));

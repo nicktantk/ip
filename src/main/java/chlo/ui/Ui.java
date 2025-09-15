@@ -30,4 +30,6 @@ public class Ui {
     public String getUnmarkTask(Task task) {
         return "Chlo marks this as undone:\n" + task;
     }
+
+    public String getDeleteTask(Task task) { return "Chlo deletes this:\n" + task; }
 }
