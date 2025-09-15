@@ -38,7 +38,7 @@ public class AddCommand extends Command {
                 storage.save(tasks);
             }
         } catch (StringIndexOutOfBoundsException e) {
-            setString(ui.getError("Invalid input format."));
+            setString(ui.getError("Invalid format for command.\nTodo <task name>\nDeadline <task name> /by DD/MM/YYYY HH:mm\nEvent <task name> /from DD/MM/YYYY HH:mm /to DD/MM/YYYY HH:mm"));
         } catch (ChloException e) {
             setString(ui.getError(e.getMessage()));
         }

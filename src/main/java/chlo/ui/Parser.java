@@ -36,7 +36,7 @@ public class Parser {
                 throw new ChloException("Unrecognised message");
             }
         } catch (StringIndexOutOfBoundsException e) {
-            throw new ChloException("Invalid format for command.");
+            throw new ChloException("Invalid command for delete/mark/unmark\ndelete <index>\nmark <index>\nunmark <index>");
         }
     }
 
